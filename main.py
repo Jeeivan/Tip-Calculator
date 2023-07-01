@@ -7,19 +7,22 @@ def getCost():
     individualBill= float(totalBill) / int(totalPeople)
     tipCost = (int(tip) / 100) * float(totalBill)
     total = individualBill + tipCost
+    print("----------------------------------------------")
     print("Individual bill: £" + ("%.2f" % total))
 
 def menu():
     global totalBill
     global totalPeople
     global tip
+    print("----------------------------------------------")
     print("Welcome to my tip calculator!")
     totalBill = input("What is the total bill? £")
     totalPeople = input("How many people are you splitting the bill with? ")
     tip = input("How much tip would you like to add (as a percentage)? ")
+    print("----------------------------------------------")
     print("Bill: £" + totalBill)
     print("Number of people to split the bill: " + totalPeople)
-    print("Tip " + tip + "%")
+    print("Tip: " + tip + "%")
     getCost()
     menu()
 
