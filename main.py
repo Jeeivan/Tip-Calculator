@@ -4,16 +4,25 @@
 # Add tip
 
 def getCost():
+    global total
     individualBill= float(totalBill) / int(totalPeople)
     tipCost = (int(tip) / 100) * float(totalBill)
     total = individualBill + tipCost
     print("----------------------------------------------")
     print("Individual bill: £" + ("%.2f" % total))
 
+def getBdayBill():
+    getCost()
+    bill = float(bdayBill) / (int(totalPeople)- 1)
+    newBill = float(total) + float(bill)
+    print("----------------------------------------------")
+    print("Individual bill + Birthday Bill: £" + ("%.2f" % newBill))
+
 def menu():
     global totalBill
     global totalPeople
     global tip
+    global bdayBill
     print("----------------------------------------------")
     print("Welcome to my tip calculator!")
     totalBill = input("What is the total bill? £")
@@ -23,7 +32,12 @@ def menu():
     print("Bill: £" + totalBill)
     print("Number of people to split the bill: " + totalPeople)
     print("Tip: " + tip + "%")
-    getCost()
+    chooseType = input("Do you also need to add a birthday boy/girl's bill to each bill? (Please answer 'Yes' or 'No') ")
+    if chooseType == "No":
+        getCost()
+    else:
+        bdayBill = input("How much was the bill for this person? £")
+        getBdayBill()
     menu()
 
 menu()
