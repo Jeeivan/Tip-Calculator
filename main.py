@@ -16,6 +16,9 @@ def getBdayBill():
     bill = float(bdayBill) / (int(totalPeople)- 1)
     newBill = float(total) + float(bill)
     print("----------------------------------------------")
+    print("Birthday bill: £" + str(bdayBill))
+    print("Birthday bill split for each person: £" + ("%.2f" % bill)) 
+    print("----------------------------------------------")
     print("Individual bill + Birthday Bill: £" + ("%.2f" % newBill))
 
 def menu():
